@@ -1,0 +1,594 @@
+/*variables*/
+
+$background-black: rgba(0, 0, 0, 0.6);
+$tipografia: "Dwarven";
+$background-dlc: url(../assets/img/cave.png);
+$backround-header: url(../assets/img/black.png);
+$background-index: url(../assets/img/ruin.png);
+
+//maps//
+$textAreas: (
+    textArea1: grey,
+    textArea2: black,
+);
+
+$textArea1: map-get($textAreas, textArea1);
+$textArea2: map-get($textAreas, textArea2);
+
+//general//
+* {
+    margin: 0px;
+    padding: 0px;
+    color: whitesmoke;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+//header//
+
+@mixin header($f: 0, $fs: font-size, $g: 0, $grid: grid-template-columns) {
+    #{$fs}: $f;
+    #{$grid}: $g;
+}
+
+.header {
+    /*header desktop*/
+
+    @media screen and (min-width: 1200px) {
+        .header_nav {
+            @include header($f: 45px, $g: 0.5fr 1fr 1fr 1fr 1fr);
+            background-image: $backround-header;
+            height: 150px;
+            background-repeat: repeat-x;
+            font-family: $tipografia;
+            grid-area: header;
+            display: grid;
+            grid-template-areas: "index mods dlcs heroes contactus";
+            .nav_index {
+                width: 70%;
+                grid-area: index;
+                a {
+                    .logoSize {
+                        width: 90%;
+                    }
+                }
+            }
+
+            .nav_index:hover {
+                transform: scale(1.3);
+            }
+
+            .nav_mods {
+                grid-area: mods;
+            }
+
+            .nav_dlcs {
+                grid-area: dlcs;
+            }
+
+            .nav_heroes {
+                grid-area: heroes;
+            }
+
+            .nav_contactus {
+                grid-area: contactus;
+            }
+        }
+    }
+
+    /*header tablet*/
+
+    @media screen and (max-width: 1199px) {
+        .header_nav {
+            @include header($f: 30px, $g: 0.5fr 1fr 1fr 1fr 1fr);
+            background-image: $backround-header;
+            height: 150px;
+            background-repeat: repeat-x;
+            font-family: $tipografia;
+            grid-area: header;
+            display: grid;
+            grid-template-areas: "index mods dlcs heroes contactus";
+            .nav_index {
+                width: 70%;
+                grid-area: index;
+                a {
+                    .logoSize {
+                        width: 90%;
+                    }
+                }
+            }
+
+            .nav_index:hover {
+                transform: scale(1.3);
+            }
+
+            .nav_mods {
+                grid-area: mods;
+            }
+
+            .nav_dlcs {
+                grid-area: dlcs;
+            }
+
+            .nav_heroes {
+                grid-area: heroes;
+            }
+
+            .nav_contactus {
+                grid-area: contactus;
+            }
+        }
+    }
+
+    /*header mobile*/
+
+    @media screen and (max-width: 768px) {
+        .header_nav {
+            @include header($f: 25px, $g: 0.5fr 1fr 1fr 1fr 1fr);
+            background-image: $backround-header;
+            height: 150px;
+            background-repeat: repeat-x;
+            font-family: $tipografia;
+            grid-area: header;
+            display: grid;
+            grid-template-areas: "index mods dlcs heroes contactus";
+
+            .nav_index {
+                width: 70%;
+                grid-area: index;
+                a {
+                    .logoSize {
+                        width: 90%;
+                    }
+                }
+            }
+
+            .nav_index:hover {
+                transform: scale(1.3);
+            }
+
+            .nav_mods {
+                grid-area: mods;
+            }
+
+            .nav_dlcs {
+                grid-area: dlcs;
+            }
+
+            .nav_heroes {
+                grid-area: heroes;
+            }
+
+            .nav_contactus {
+                grid-area: contactus;
+            }
+        }
+    }
+}
+
+/*footer*/
+
+footer {
+    background-color: $background-black;
+    grid-area: footer;
+    display: grid;
+    grid-template-areas: "social shops";
+    grid-template-columns: 1fr 1fr;
+
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.footer_section1 {
+    grid-area: social;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 86px;
+    margin-top: 10px;
+}
+
+.footer_section2 {
+    grid-area: shops;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-top: 86px;
+    margin-top: 10px;
+}
+
+//PAGES//
+//Contact//
+
+.backgroundContact {
+    background-image: url(../assets/img/books.png);
+    background-repeat: repeat;
+    background-size: cover;
+
+    /*main container box 2*/
+
+    #contact_container {
+        background-color: $background-black;
+        margin-top: 90px;
+        text-align: center;
+        .section1_contact {
+            .contact_h1 {
+                font-family: $tipografia;
+                font-weight: normal;
+                font-size: 40px;
+            }
+            div {
+                label {
+                    form-label {
+                        background-color: $background-black;
+                    }
+                }
+            }
+            p {
+                img {
+                    .letter {
+                        width: 25%;
+                    }
+                }
+            }
+
+            #textArea1 {
+                background-color: $textArea1;
+            }
+
+            #textArea2 {
+                background-color: $textArea2;
+            }
+
+            .contact_button1 {
+                margin: 10px;
+                color: whitesmoke;
+                padding: 20px;
+                background: black;
+                border-radius: 10px;
+            }
+            .contact_button2 {
+                @extend .contact_button1;
+                background: whitesmoke;
+                color: black;
+            }
+        }
+    }
+}
+
+//index main section desktop//
+
+@media screen and (min-width: 1200px) {
+    #Index {
+        background-image: $background-index;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "header" "section1a" "footer";
+        grid-template-rows: 2fr 3fr 0.5fr;
+        grid-row-gap: 50px;
+    }
+}
+
+/*index main section tablet*/
+
+@media screen and (max-width: 1199px) {
+    #Index {
+        background-image: $background-index;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "header" "section1a" "footer";
+        grid-template-rows: 1fr 2fr 0.5fr;
+        grid-row-gap: 20px;
+    }
+}
+
+/*index main section mobile*/
+
+@media screen and (max-width: 768px) {
+    #Index {
+        background-image: $background-index;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "header" "section1a" "footer";
+        grid-template-rows: 1fr 2fr 0.2fr;
+        grid-row-gap: 10px;
+    }
+}
+
+/*index desktop*/
+@media screen and (min-width: 1200px) {
+    .section1_index {
+        grid-area: section1a;
+        display: grid;
+        grid-template-areas: "indexh1 indexh2 indexh3";
+        grid-template-rows: 1fr;
+        font-size: 30px;
+    }
+}
+
+/*index tablet*/
+@media screen and (max-width: 1199px) {
+    .section1_index {
+        grid-area: section1a;
+        display: grid;
+        grid-template-areas: "indexh1 indexh2 indexh3";
+        grid-template-rows: 1fr;
+        font-size: 23px;
+    }
+}
+
+/*index mobile*/
+@media screen and (max-width: 768px) {
+    .section1_index {
+        grid-area: section1a;
+        display: grid;
+        grid-template-areas: "indexh1 indexh2 indexh3";
+        grid-template-rows: 1fr;
+        font-size: 17px;
+    }
+}
+
+.section1_index {
+    div {
+        grid-area: indexh2;
+        h1 {
+            font-family: $tipografia;
+            font-weight: normal;
+        }
+        ul {
+            list-style-image: url(../assets/img/list_icon.png);
+            li {
+                padding: 10px;
+            }
+        }
+    }
+}
+//mods//
+
+/* mods*/
+
+#backgroundMods {
+    background-image: url(../assets/img/wall.webp);
+    h1 {
+        font-family: $tipografia;
+        font-weight: normal;
+        font-size: 40px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    #section1_mods {
+        padding: 50px;
+        background-color: $background-black;
+        display: flex;
+        flex-direction: column;
+        iframe {
+            padding: 30px;
+        }
+        h5 {
+            font-size: 25px;
+        }
+    }
+}
+
+//dlcs//
+
+//dlcs desktop main grid//
+@media screen and (min-width: 1200px) {
+    #dlcs {
+        background-image: $background-dlc;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "header" "section1" "footer";
+        grid-template-rows: 0.8fr 2.5fr 0.2fr;
+        grid-row-gap: 10px;
+    }
+}
+
+/*dlc tablet main grid*/
+@media screen and (max-width: 1199px) {
+    #dlcs {
+        background-image: $background-dlc;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "header" "section1" "footer";
+        grid-template-rows: 0.3fr 2.5fr 0.2fr;
+        grid-row-gap: 10px;
+    }
+}
+
+/*dlc mobile main grid*/
+@media screen and (max-width: 768px) {
+    #dlcs {
+        background-image: $background-dlc;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-areas: "header" "section1" "footer";
+        grid-template-rows: 0.3fr 2.5fr 0.2fr;
+        grid-row-gap: 10px;
+    }
+}
+//dlc section grid//
+
+/*desktop*/
+@media screen and (min-width: 1200px) {
+    .section1_dlcs {
+        text-align: center;
+        font-family: $tipografia;
+        font-size: 30px;
+        grid-area: section1;
+        background-color: $background-black;
+        display: grid;
+        grid-template-areas: "h h1 x" "item1 item2 item3";
+        grid-template-rows: 0.1fr;
+        grid-template-columns: 3fr 3fr 3fr;
+        grid-row-gap: 50px;
+    }
+}
+
+/*tablet section grid*/
+@media screen and (max-width: 1199px) {
+    .section1_dlcs {
+        text-align: center;
+        font-family: $tipografia;
+        font-size: 30px;
+        grid-area: section1;
+        background-color: $background-black;
+        display: grid;
+        grid-template-areas: "h1" "item1" "item2" "item3";
+        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+        grid-row-gap: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/*mobile section grid*/
+@media screen and (max-width: 768px) {
+    .section1_dlcs {
+        text-align: center;
+        font-family: $tipografia;
+        font-size: 30px;
+        grid-area: section1;
+        background-color: $background-black;
+        display: grid;
+        grid-template-areas: "h1" "item1" "item2" "item3";
+        grid-template-rows: 0.1fr;
+        grid-template-columns: 3fr 3fr 3fr;
+        grid-row-gap: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.section1_dlcs {
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+    button {
+        background-color: black;
+        color: whitesmoke;
+        width: 200px;
+        padding: 25px;
+        font-weight: bold;
+        font-size: 25px;
+        grid-area: button1;
+        margin: 10px;
+        &:hover {
+            color: orangered;
+        }
+    }
+
+    .section1_dlcs-item1 {
+        grid-area: item1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .section1_dlcs-item2 {
+        grid-area: item2;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .section1_dlcs-item3 {
+        grid-area: item3;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+/*dlc h1 desktop*/
+@media screen and (min-width: 1200px) {
+    .dlc_section1-h1 {
+        font-weight: normal;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        grid-area: h1;
+    }
+}
+
+/*dlc h1 tablet*/
+@media screen and (max-width: 1199px) {
+    .dlc_section1-h1 {
+        font-weight: normal;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        grid-area: h1;
+        font-size: 28px;
+    }
+}
+
+//heroes//
+#backgroundHeroes {
+    background-image: url(../assets/img/hope.jpg);
+
+    h1 {
+        font-family: $tipografia;
+        font-weight: normal;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .section1Nav {
+        background-image: url(../assets/img/black2.png);
+        height: 350px;
+        opacity: 0.8;
+
+        .heroesList {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 150px;
+            font-size: 20px;
+            font-family: $tipografia;
+        }
+    }
+    .section2_heroes {
+        background-color: $background-black;
+        padding: 100px;
+        width: 1000px;
+        text-align: center;
+
+        ul {
+            img {
+                width: 150px;
+                height: 180px;
+            }
+            li {
+                padding-left: 40px;
+            }
+        }
+        h3 {
+            font-family: $tipografia;
+            font-weight: normal;
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+}
+
+/*links*/
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+    &:hover {
+        color: orangered;
+        text-decoration: none;
+    }
+}
+
+/*font*/
+
+@font-face {
+    font-family: Dwarven;
+    src: url(../assets/fonts/DwarvenAxe\ BB\ W00\ Regular.ttf);
+}
